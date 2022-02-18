@@ -41,7 +41,7 @@ function onInputChange(event) {
 }
 
 function isInputValueValidLength(value, length) {
-    return value.length > 0 && value.length <= length;
+    return value.length >= length;
 }
 
 function isInputValueHasOnlyChars(value) {
