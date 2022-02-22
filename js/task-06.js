@@ -30,29 +30,24 @@ const inputRef = document.getElementById('validation-input');
 inputRef.addEventListener('blur', onInputChange);
 
 function onInputChange(event) {
-    const currentValue = event.currentTarget.value;
-    const maxLength = event.currentTarget.dataset.length;
+  const currentValue = event.currentTarget.value;
+  const maxLength = event.currentTarget.dataset.length;
 
-    const validationRules = [isInputValueValidLength, isInputValueHasOnlyChars];
-    const isInputValueValid = validationRules.every(cb => cb(currentValue, maxLength));
+  const validationRules = [isInputValueValidLength];
+  const isInputValueValid = validationRules.every((cb) => cb(currentValue, maxLength));
 
-
-    changeMarkup(isInputValueValid);
+  changeMarkup(isInputValueValid);
 }
 
 function isInputValueValidLength(value, length) {
-    return value.length >= length;
-}
-
-function isInputValueHasOnlyChars(value) {
-    return value.split('').every(char => isNaN(Number(char)));
+  return value.length >= length;
 }
 
 function changeMarkup(isValid) {
-    inputRef.classList.add('invalid');
+  inputRef.classList.add('invalid');
 
-    if (isValid) {
-        inputRef.classList.remove('invalid');
-        inputRef.classList.add('valid');
-    }
+  if (isValid) {
+    inputRef.classList.remove('invalid');
+    inputRef.classList.add('valid');
+  }
 }
