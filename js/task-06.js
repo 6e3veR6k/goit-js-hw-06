@@ -40,7 +40,7 @@ function onInputChange(event) {
 }
 
 function isInputValueValidLength(value, length) {
-  return value.length === length;
+  return value.length === Number(length);
 }
 
 function changeMarkup(isValid) {
